@@ -7,6 +7,7 @@ import HomePage from './components/HomePage.vue'
 import AboutPage from './components/AboutPage.vue'
 import GalleryPage from './components/GalleryPage.vue'
 import ServicesPage from './components/ServicesPage.vue'
+import ContactsPage from './components/ContactsPage.vue'
 import Header from './components/HeaderFooter/Header.vue'
 import Footer from './components/HeaderFooter/Footer.vue'
 import Aside from './components/Aside.vue'
@@ -15,6 +16,7 @@ Vue.component('app-homepage', HomePage);
 Vue.component('app-aboutpage', AboutPage);
 Vue.component('app-gallery', GalleryPage);
 Vue.component('app-services', ServicesPage);
+Vue.component('app-contacts', ContactsPage);
 
 Vue.component('app-header', Header);
 Vue.component('app-footer', Footer);
