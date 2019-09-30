@@ -166,7 +166,7 @@ a:active { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform
 .rep h2 { cursor: pointer; font-size: 18px; }
 .rep h2 span { width: 15px; height: 15px; background: url("../img/arr-down.svg"); display: inline-block; background-size: cover; margin-left: 5px; vertical-align: middle; -webkit-transition: none; transition: none; }
 .rep h2 span.is-active { -webkit-transform: rotate(-180deg); -ms-transform: rotate(-180deg); transform: rotate(-180deg); }
-.rep article { display: none; *zoom: 1; }
+/* .rep article { display: none; *zoom: 1; } */
 .rep article:after { content: " "; display: table; clear: both; }
 .rep article.is-visible { display: block; }
 .rep article h4 { color: white; text-align: right; font-size: 20px; text-decoration: underline; margin-bottom: 20px; }
