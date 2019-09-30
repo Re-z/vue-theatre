@@ -158,7 +158,7 @@ a:active { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform
 
 .rep .block__content { float: right; }
 .rep .block__aside { float: left; padding: 0 15px 0 0; }
-.rep .block__aside ul { margin-left: 20px; display: none; }
+.rep .block__aside ul { margin-left: 20px; }
 .rep .block__aside ul.is-visible { display: block; }
 .rep .block__aside li { cursor: pointer; }
 .rep .block__aside li:hover { color: white; }

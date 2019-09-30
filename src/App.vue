@@ -4,7 +4,8 @@
         <!-- <app-aboutpage></app-aboutpage> -->
         <!-- <app-gallery></app-gallery> -->
         <!-- <app-services></app-services> -->
-        <app-contacts></app-contacts>
+        <!-- <app-contacts></app-contacts> -->
+        <app-repertory></app-repertory>
 
     </div>
 </template>
