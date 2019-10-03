@@ -14,38 +14,66 @@
                 <div class="inner">
                     <div class="rep">
                         <aside class="block__aside rep__aside">
-                            <h2 class="rep__list-title is-active">Для молодших вікових груп <span class=""></span></h2>
+                            <div class="block__aside-item">
+                                <h2 
+                                    @click="youngListIsShown = !youngListIsShown" 
+                                    class="rep__list-title is-active">Для молодших вікових груп 
+                                    <span class=""></span>
+                                </h2>
                             
-                            <ul class="">
-                                <li 
-                                    v-for="(item,index) in db" :key="index" 
-                                    v-if="item.forAge === 'young'"
-                                    @click="selectActiveShow"
-                                    :class="'is-active'"
-                                >
-                                    {{ item.name }}
-                                </li>
-                            </ul>
-
-
-                            <h2 class="rep__list-title">Для старших вікових груп <span class=""></span></h2>
+                                <ul v-if="youngListIsShown">
+                                    <li 
+                                        v-for="(item,index) in db" :key="index" 
+                                        v-if="item.forAge === 'young'"
+                                        @click="selectActiveShow"
+                                        :class="item.name === selectedShow.name ? 'is-active' : ''" 
+                                    >
+                                    <!-- Если название представления, которое идет в цикле совпадает
+                                        с названием выбранного представления из обьекта selectedShow,
+                                        то добавляем этому элементу класс -->
+                                        {{ item.name }}
+                                    </li>
+                                </ul>
+                            </div>
                             
-                            <ul class="">
-                                <li 
-                                    v-for="(item,index) in db" :key="index" 
-                                    v-if="item.forAge === 'old'">
-                                    {{ item.name }}
-                                </li>
-                            </ul>
 
-                            <h2 class="rep__list-title">Архів вистав <span class="is-active"></span></h2>
-                            <ul class="">
-                                <li 
-                                    v-for="(item,index) in db" :key="index" 
-                                    v-if="item.forAge === 'archive'">
-                                    {{ item.name }}
-                                </li>
-                            </ul>
+                            <div class="block__aside-item">
+                                <h2 
+                                    @click="oldListIsShown = !oldListIsShown" 
+                                    class="rep__list-title">Для старших вікових груп 
+                                    <span class=""></span>
+                                </h2>
+                                
+                                <ul v-if="oldListIsShown">
+                                    <li 
+                                        v-for="(item,index) in db" :key="index" 
+                                        v-if="item.forAge === 'old'"
+                                        @click="selectActiveShow"    
+                                        :class="item.name === selectedShow.name ? 'is-active' : ''" 
+
+                                    >
+                                        {{ item.name }}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="block__aside-item"  >
+                                <h2 
+                                    @click="archiveListIsShown = !archiveListIsShown" 
+                                    class="rep__list-title">Архів вистав 
+                                    <span></span>
+                                </h2>
+                                <ul class="" v-if="archiveListIsShown">
+                                    <li 
+                                        v-for="(item,index) in db" :key="index" 
+                                        v-if="item.forAge === 'archive'"
+                                        @click="selectActiveShow"    
+                                        :class="item.name === selectedShow.name ? 'is-active' : ''"     
+                                    >
+                                        {{ item.name }}
+                                    </li>
+                                </ul>
+                            </div>
+
                         </aside>
                         
                         <div class="block__content rep__content">
@@ -80,13 +108,15 @@
 export default {
     data() {
         return {
-            
+            youngListIsShown: true, //управляет статусом показа аккордеона с представлениями
+            oldListIsShown: false, //управляет статусом показа аккордеона с представлениями
+            archiveListIsShown: false, //управляет статусом показа аккордеона с представлениями
             db: '', //сюда будет записан объект, который прийдет с firebase и на основании него будет отрисован список представлений в DOM
             selectedShow: { //здесь будет хранится объект активного выступления, которое в данный момент на экране
                 "name": "Навчання Коськи",
                 "img": "koska.jpg",
                 "text": "Авторська постановка на одну дію для дітей віком від 4 до 12 років, мова українська або російська, тривалість 40-45 хвилин, режисер постановки – Бачинська Н.М. В ході постановки розкриваються такі питання повсякденної життєдіяльності як правила дорожнього руху та пожежна безпека.",
-                "forAge": "young"
+                "forAge": "young",
             } 
         }
     },
@@ -100,7 +130,6 @@ export default {
                     return {el}
                 }
             });
-            console.log(this.selectedShow);
             //далее присваиваем значения этого объекта в переменную selectedShow, на основании которой отрисовываются элементы DOM
            this.selectedShow = selectedShowObject[0]
         }
