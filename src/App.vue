@@ -1,12 +1,6 @@
 <template>
     <div class="main-wrap">
-        <!-- <app-homepage></app-homepage> -->
-        <!-- <app-aboutpage></app-aboutpage> -->
-        <!-- <app-gallery></app-gallery> -->
-        <!-- <app-services></app-services> -->
-        <!-- <app-contacts></app-contacts> -->
-        <app-repertory></app-repertory>
-
+        <router-view></router-view>
     </div>
 </template>
 

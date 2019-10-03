@@ -3,11 +3,9 @@
         <app-header></app-header>
 
         <main class="content">
-            <section class="intro-line">
-                <div class="inner">
-                    <h1>Контакти</h1>
-                </div>
-            </section>
+            
+            <app-heading title="Контакти"></app-heading>
+            
             <section class="block">
                 <div class="inner">
                     <div class="contacts">

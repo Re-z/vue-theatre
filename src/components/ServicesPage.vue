@@ -4,11 +4,10 @@
         <app-header></app-header>
 
         <main class="content">
-            <section class="intro-line">
-                <div class="inner">
-                    <h1>Послуги</h1>
-                </div>
-            </section>
+            
+            <app-heading title="Послуги"></app-heading>
+
+
             <section class="block block_has-aside">
                 <div class="inner">
                     <div class="block__content services">
@@ -44,24 +43,22 @@
                     <div class="block__aside actual">
                         <h3>Актуальні вистави</h3><b>Для молодших вікових груп</b>
                         <ul>
-                            <li>Новорічні пригоди</li>
-                            <li>Як у Ляни на галявині</li>
-                            <li>Навчання Коськи</li>
-                            <li>Метелиця</li>
-                            <li>Зимові пригоди</li>
-                            <li>Пригоди мавпи (Чічіта)</li>
-                            <li>Квітка бажань</li>
-                            <li>Як Іван за розумом ходив</li>
-                            <li>Зимова королева</li>
+                            <li 
+                                v-for="(item,index) in db" :key="index"
+                                v-if="item.forAge === 'young'"
+                            >
+                                {{ item.name }}
+                            </li>
+                            
                         </ul>
                         <b>Для старших вікових груп</b>
                         <ul>
-                            <li>Перезагрузка</li>
-                            <li>Це наш дім</li>
-                            <li>Микита Гайдай</li>
-                            <li>Життєва наука</li>
-                            <li>Віртуальний екзамен</li>
-                            <li>Рівняння з трьома невідомими</li>
+                            <li 
+                                v-for="(item,index) in db" :key="index"
+                                v-if="item.forAge === 'old'"
+                            >
+                                {{ item.name }}
+                            </li>
                         </ul><a href="repertory.html" title="Детальніше" class="btn">Детальніше</a>
                     </div>
                 </div>
@@ -89,7 +86,18 @@
 </template>
 
 <script>
+import {getDataFromDB} from '../assets/js/getDataFromServer.js'
+// import {getDataFromDB} from '../assets/js/getDataFromServer.js';
+
 export default {
-    
+    data() {
+        return {
+            db: ''
+        }
+    },
+    created() {
+        let dataFromFirebase = getDataFromDB()
+            .then(data => this.db = data)
+    }
 }
 </script>

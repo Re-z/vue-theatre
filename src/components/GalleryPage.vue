@@ -3,11 +3,10 @@
         <app-header></app-header>
 
         <main class="content">
-            <section class="intro-line">
-                <div class="inner">
-                    <h1>Галерея</h1>
-                </div>
-            </section>
+            
+            <app-heading title="Галерея"></app-heading>
+            
+
             <section class="block block_has-aside">
                 <div class="inner">
                     <h2>Фото</h2>

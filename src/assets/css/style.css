@@ -59,7 +59,8 @@ a:active { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform
 .nav ul.header__nav.is-visible { display: block; }
 .nav li { display: inline-block; margin: 0 15px; }
 .nav a { color: #8a838b; font-size: 20px; font-weight: bold; }
-.nav a:hover { color: white; }
+.nav a:hover, .nav a.router-link-active { color: white; }
+
 
 .header { background: url("../img/header-bg.jpg") center top no-repeat; height: 330px; padding-top: 60px; }
 .header_mainpage { height: 755px; padding: 0; }

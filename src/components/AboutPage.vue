@@ -2,11 +2,10 @@
     <div>
         <app-header></app-header>
         <main class="content">
-            <section class="intro-line">
-                <div class="inner">
-                    <h1>Про нас</h1>
-                </div>
-            </section>
+            
+            <app-heading title="Про нас"></app-heading>
+
+
             <section class="block block_has-aside">
                 <div class="inner">
                     <div class="who block__content"><img src="../assets/img/logo.png" title="Фото">

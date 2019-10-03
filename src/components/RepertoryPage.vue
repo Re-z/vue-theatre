@@ -2,14 +2,12 @@
     <div>
         <app-header></app-header>
         <!-- todo -->
-        <!-- сделать активное состояние кнопки в списке -->
         <!-- динамически подгружать первый элемент -->
         <main class="content">
-            <section class="intro-line">
-            <div class="inner">
-                <h1>Репертуар на 2019 рік</h1>
-            </div>
-            </section>
+
+
+            <app-heading title="Репертуар на 2019 рiк"></app-heading>
+
             <section class="block block_has-aside">
                 <div class="inner">
                     <div class="rep">
@@ -87,7 +85,6 @@
                                      >
                                     <p>{{ selectedShow.text }}</p>
                                 </div>
-                                <!-- :src="require(`@/assets/img/photo/gallery/gallery(${img}).jpg`)" -->
                             </article>
 
                             
@@ -105,6 +102,9 @@
 </template>
 
 <script>
+
+import {getDataFromDB} from '../assets/js/getDataFromServer.js';
+
 export default {
     data() {
         return {
@@ -136,15 +136,10 @@ export default {
         
     },
     created() {
-        //забираем данные с firebase
-        async function getDataFromDB() {
-            let response = await fetch('https://vp-teatr.firebaseio.com/repertory.json');
-            let data = await response.json();
-            return data;
-        };
+        
         // получаем промис
         let data = getDataFromDB()
-        // когда данные будут получены - они присвоятся переменной db в data
+        // когда данные будут получены - они присвоятся переменной db в data и произойдет отрисовка списка
             .then(a => this.db = a);
     },
     
