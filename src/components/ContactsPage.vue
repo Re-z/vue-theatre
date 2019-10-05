@@ -1,6 +1,6 @@
 <template>
     <div>
-        <app-header></app-header>
+        <!-- <app-header></app-header> -->
 
         <main class="content">
             
@@ -32,6 +32,6 @@
             </section>
         </main>
 
-        <app-footer></app-footer>
+        <!-- <app-footer></app-footer> -->
     </div>
 </template>

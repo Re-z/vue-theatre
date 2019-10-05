@@ -7,7 +7,12 @@ import RepertoryPage from '../../components/RepertoryPage.vue'
 
 export const routes = 
     [
-        {path: '/', component: HomePage},
+        {path: '/', 
+            components: {
+                default: '',
+                home: HomePage,
+            }
+        },
         {path: '/about', component: AboutPage},
         {path: '/gallery', component: GalleryPage},
         {path: '/repertory', component: RepertoryPage},

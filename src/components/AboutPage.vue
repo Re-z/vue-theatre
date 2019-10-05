@@ -1,6 +1,6 @@
 <template>
     <div>
-        <app-header></app-header>
+        <!-- <app-header></app-header> -->
         <main class="content">
             
             <app-heading title="Про нас"></app-heading>
@@ -40,7 +40,7 @@
         </section>
       </main>
 
-      <app-footer></app-footer>
+      <!-- <app-footer></app-footer> -->
       
     </div>
 </template>

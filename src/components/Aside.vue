@@ -5,7 +5,7 @@
             <ul>
                 <li v-for="(offer,index) in offers" :key="index"> {{ offer }}</li>
             </ul>
-            <a href="services.html" alt="Детальніше" class="btn">Детальніше</a>
+            <router-link exact to="services" class="btn">Детальніше</router-link>
         </div>
     </div>
 </template>

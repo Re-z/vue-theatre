@@ -11,7 +11,23 @@
           <div class="footer__copy">
             <p>Київський театр "Вояж-Престиж"</p>
             <p>© 2009-2019</p>
-          </div><span class="footer__to-top"><span></span></span>
+          </div>
+          <span class="footer__to-top" @click="scrollTop">
+              <span></span>
+          </span>
         </div>
       </footer>
 </template>
+
+<script>
+export default {
+  methods: {
+    scrollTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  }
+}
+</script>

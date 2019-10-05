@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <app-header></app-header>
+        <!-- <app-header></app-header> -->
 
         <main class="content">
             
@@ -59,7 +59,9 @@
                             >
                                 {{ item.name }}
                             </li>
-                        </ul><a href="repertory.html" title="Детальніше" class="btn">Детальніше</a>
+                            
+                        </ul>
+                        <router-link exact to="/repertory" class="btn">Детальніше</router-link>
                     </div>
                 </div>
             </section>
@@ -78,7 +80,7 @@
                 </div>
             </section>
         
-        <app-footer></app-footer>
+        <!-- <app-footer></app-footer> -->
 
 
       </main>

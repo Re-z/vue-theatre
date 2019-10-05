@@ -1,6 +1,6 @@
 <template>
     <div>
-        <app-header></app-header>
+        <!-- <app-header></app-header> -->
         <!-- todo -->
         <!-- динамически подгружать первый элемент -->
         <main class="content">
@@ -96,7 +96,7 @@
             </section>
         </main>
 
-    <app-footer></app-footer>
+    <!-- <app-footer></app-footer> -->
 
 </div>
 </template>
