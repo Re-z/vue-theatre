@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- <app-header></app-header> -->
 
         <main class="content">
             
@@ -21,9 +20,9 @@
                             </div>
                             <form id="form">
                                 <h2>Форма зв`язку</h2>
-                                <input type="text" placeholder="Ваше ім`я">
+                                <input v-model="name" type="text" placeholder="Ваше ім`я" required>
                                 <input type="number" placeholder="Ваш телефон">
-                                <textarea placeholder="Ваше повідомлення"></textarea>
+                                <textarea v-model="msg" placeholder="Ваше повідомлення" required></textarea>
                                 <input type="submit" value="Відправити" class="btn">
                             </form>
                         </div>
@@ -32,6 +31,48 @@
             </section>
         </main>
 
-        <!-- <app-footer></app-footer> -->
+        <section class="overlay" v-if="popupIsShowed">
+            <div class="popup">
+                <p>В контактній формі є незаповненні данні. Все одно покинути сторінку?</p>
+                <div class="popup__btns">
+                    <div class="btn" @click="popupIsShowed = false">Відправити форму</div>
+                    <div class="btn btn_color" @click="changeRoute">Покинути сторінку</div>
+                </div>
+            </div>
+        </section>
+
+
     </div>
 </template>
+
+<script>
+
+export default {
+    data() {
+        return {
+            name: '', //данные для инпута с именем
+            msg: '', //данные для инпута с сообщением
+            popupIsShowed: false, //состояние попапа
+            routeTo: ''//переменная, в которой будет хранится путь, куда юзер захотел уйти
+        }
+    },
+    methods: {
+        changeRoute() {
+            this.name = '';
+            this.msg = '';
+            this.$router.push({path: this.routeTo})
+        }
+    },
+    //перед уходом с этой урлы делается проверка - если поля формы заполненны - показывается попап,
+    // в котором юзера просят подтвердить уход. Если он согласен - срабатывает функция changeRoute
+    // которая стирает данные формы и перенаправляет на другую страницу
+    beforeRouteLeave(to, from, next) {
+        if(this.name || this.msg) {
+            this.popupIsShowed = true;
+            this.routeTo = to.fullPath;
+        } else {
+            next()
+        }
+    }
+}
+</script>

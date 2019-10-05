@@ -49,7 +49,7 @@ a:active { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform
 
 .inner { width: 1200px; margin: 0 auto; position: relative; padding: 0 10px; }
 
-.btn { text-transform: uppercase; background: #61B82E; color: white; padding: 8px 20px; font-weight: bold; text-align: center; border-radius: 3px; font-size: 16px; }
+.btn { text-transform: uppercase; background: #61B82E; color: white; padding: 8px 20px; font-weight: bold; text-align: center; border-radius: 3px; font-size: 16px; cursor: pointer}
 .btn_color { background: #2e272f; }
 .btn:hover { background: white; color: #2e272f; }
 
@@ -198,6 +198,42 @@ a:active { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform
 .contacts form input[type="text"]::-webkit-inner-spin-button, .contacts form input[type="text"]::-webkit-outer-spin-button, .contacts form input[type="number"]::-webkit-inner-spin-button, .contacts form input[type="number"]::-webkit-outer-spin-button, .contacts form textarea::-webkit-inner-spin-button, .contacts form textarea::-webkit-outer-spin-button { -webkit-appearance: none; }
 .contacts form input[type="text"]:focus, .contacts form input[type="number"]:focus, .contacts form textarea:focus { outline: 2px solid #61B82E; }
 .contacts form textarea { width: 100%; resize: none; height: 200px; }
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
+}
+.popup {
+  max-width: 500px;
+  width: 100%;
+  margin: 100px auto;
+  background: #2e272f;
+  padding: 20px;
+  color: white;
+  font-size: 20px;
+  text-align: center
+}
+.popup__btns {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between
+}
+.popup__btns .btn {
+  max-width: 49%
+}
+
+
+
+
+
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px){
  *{ -webkit-text-size-adjust: none; } }
 @media only screen and (max-width: 1200px){
@@ -287,8 +323,10 @@ a:active { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform
 @media only screen and (max-width: 400px){
  .photo iframe, .video iframe{ height: 300px; }
  .photo__img{ width: 100%; margin-bottom: 10px; }
- .congrats iframe{ width: 100%; height: 300px; } }
-
+ .congrats iframe{ width: 100%; height: 300px; }
+ .popup__btns {display: block;}
+ .popup__btns .btn {width: 100%; max-width: 100%; margin-bottom: 10px}
+}
 
 
 /*# sourceMappingURL=style.css.map */
