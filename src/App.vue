@@ -9,9 +9,7 @@
         <!-- если главная страница - показываем одно представление router-view name="home",
         если же нет - показываем совсем другой блок с другим представленим, в котором не меняются
         хедер и футер -->
-
         <div v-if="currentRoute != '/'">
-
             <app-header></app-header>
 
             <transition name="fade" mode="out-in">
@@ -21,6 +19,8 @@
             <app-footer></app-footer>
         
         </div>
+        
+        
         
         
     </div>
@@ -41,7 +41,10 @@ export default {
         // потом, на основании значения мы показываем или не показываем
         // другой слой представления router-view
         this.currentRoute = this.$router.currentRoute.fullPath
-        console.log(this.currentRoute);
+    },
+    created() {
+        //фолбек для отображения правильного router-view при изначальной загрузке страницы (если это не главная)
+        this.currentRoute = this.$router.currentRoute.fullPath
     }
 }
 </script>

@@ -18,6 +18,11 @@ import Heading from './components/Heading.vue'
 
 import { routes } from './assets/js/routes.js'
 
+import VueLazyLoad from 'vue-lazyload'
+Vue.use(VueLazyLoad)
+import LightBox from 'vue-image-lightbox'
+Vue.component('LightBox', LightBox);
+
 
 Vue.component('app-homepage', HomePage);
 Vue.component('app-aboutpage', AboutPage);
