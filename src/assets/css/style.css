@@ -266,7 +266,7 @@ a:active { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform
 @media only screen and (max-width: 767px){
  .nav{ position: fixed; top: 0; left: 0; width: 100%; padding: 0 15px 0 10px; z-index: 100; }
  .nav img{ width: 70px; }
- .nav ul.header__nav{ display: none; position: absolute; top: 70px; left: 0; background: #2e272f; width: 100%; text-align: center; border-bottom: 6px solid #61B82E; }
+ .nav ul.header__nav{position: absolute; top: 70px; left: 0; background: #2e272f; width: 100%; text-align: center; border-bottom: 6px solid #61B82E; }
  .nav li{ display: block; margin: 10px 0; }
  .header_mainpage{ height: auto; padding-bottom: 40px; }
  .header p{ font-size: 14px; }
