@@ -4,6 +4,7 @@ import GalleryPage from '../../components/GalleryPage.vue'
 import ServicesPage from '../../components/ServicesPage.vue'
 import ContactsPage from '../../components/ContactsPage.vue'
 import RepertoryPage from '../../components/RepertoryPage.vue'
+import page404 from '../../components/404.vue'
 
 export const routes = 
     [
@@ -18,4 +19,5 @@ export const routes =
         {path: '/repertory', component: RepertoryPage},
         {path: '/services', component: ServicesPage},
         {path: '/contacts', component: ContactsPage},
+        { path: '*',component: page404 }
     ]
