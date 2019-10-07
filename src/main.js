@@ -3,6 +3,7 @@ import App from './App.vue'
 //router
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
+import { routes } from './assets/js/routes.js'
 
 //components
 import HomePage from './components/HomePage.vue'
@@ -16,7 +17,6 @@ import Footer from './components/HeaderFooter/Footer.vue'
 import Aside from './components/Aside.vue'
 import Heading from './components/Heading.vue'
 
-import { routes } from './assets/js/routes.js'
 
 import VueLazyLoad from 'vue-lazyload'
 Vue.use(VueLazyLoad)
@@ -56,16 +56,10 @@ const router = new VueRouter({
   }
 });
 
+router.afterEach((to,from) => {
+  console.log('After Route Change')
+})
 
-// new Vue({
-//   router,
-//   render: h => h(App)
-// }).$mount('#app')
-
-// new Vue({
-//   el: '#app',
-//   router: router
-// })
 new Vue({
   el:'#app',
   router,

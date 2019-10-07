@@ -152,11 +152,3 @@ export default {
     
 }
 </script>
-
-<style>
-    
-    @media (max-width: 767px) {
-        
-    }
-
-</style>
