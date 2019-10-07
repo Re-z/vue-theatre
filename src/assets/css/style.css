@@ -61,7 +61,7 @@ a:active { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform
 .nav a { color: #8a838b; font-size: 20px; font-weight: bold; }
 .nav a:hover, .nav a.router-link-active { color: white; }
 
-
+.close { display: none; width: 25px; height: 25px; background: url('../img/cancel.svg') 25px 25px; background-size: cover}
 .header { background: url("../img/header-bg.jpg") center top no-repeat; height: 330px; padding-top: 60px; }
 .header_mainpage { height: 755px; padding: 0; }
 .header .inner { height: inherit; }
@@ -253,6 +253,11 @@ a:active { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform
  .header__logo{ position: static; margin: 0 auto; display: block; text-align: center; }
  .header__logo img{ width: 150px; height: 164px; }
  .header__burger{ display: block; }
+ .block__content.rep__content { position: fixed; z-index: 100; right: 0; top: 0 }
+.block__content-box {background: #2e272f;border: 2px solid #61B82E;padding: 20px 10px;}
+.block__aside.rep__aside {width: 100%;}
+.close {display: block;}
+.aside.block__aside.rep__aside {width: 100%;}
  .content p{ font-size: 14px; text-align: center; }
  .content h2, .content h3{ font-size: 18px; margin-bottom: 15px; text-align: center; }
  .content .block{ padding: 20px 0 40px 0; }
@@ -281,10 +286,10 @@ a:active { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform
  .why__item p{ text-align: left; }
  .photo iframe, .video iframe{ width: 100%; height: 350px; }
  .photo__img{ width: 49%; }
- .rep .block__aside{ display: none; }
+ /* .rep .block__aside{ display: none; } */
  .rep article{ display: block; }
  .rep article h4{ text-align: center; font-size: 18px; color: #dad9da; text-decoration: none; }
- .rep article div{ display: none; }
+ /* .rep article div{ display: none; } */
  .services__item{ margin-top: 30px; }
  .services__item img{ float: none; margin: 0 auto 15px auto; }
  .services__item h3{ text-align: center; margin-bottom: 15px; }

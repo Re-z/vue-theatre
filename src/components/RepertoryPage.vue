@@ -74,17 +74,23 @@
                         </aside>
                         
                         <div class="block__content rep__content">
+                            
                             <!-- Контент будет изменяться в зависимости от выбранного представления -->
-                            <article>
-                                <h4>{{selectedShow.name}}</h4>
-                                <div>
-                                    <img
-                                        v-if="selectedShow.img"
-                                        :src="require(`../assets/img/photo/rep/${selectedShow.img}`)"
-                                     >
-                                    <p>{{ selectedShow.text }}</p>
-                                </div>
-                            </article>
+                            <div class="block__content-box" v-if="initialShowContentBlock">
+                                <button class="close" @click="initialShowContentBlock = !initialShowContentBlock">X</button>
+                                <article>
+                                    <h4>{{selectedShow.name}}</h4>
+                                    <div>
+                                        <img
+                                            v-if="selectedShow.img"
+                                            :src="require(`../assets/img/photo/rep/${selectedShow.img}`)"
+                                        >
+                                        <p>{{ selectedShow.text }}</p>
+                                    </div>
+                                </article>
+                            </div>
+                            
+                            
 
                             
                       
@@ -115,7 +121,8 @@ export default {
                 "img": "koska.jpg",
                 "text": "Авторська постановка на одну дію для дітей віком від 4 до 12 років, мова українська або російська, тривалість 40-45 хвилин, режисер постановки – Бачинська Н.М. В ході постановки розкриваються такі питання повсякденної життєдіяльності як правила дорожнього руху та пожежна безпека.",
                 "forAge": "young",
-            } 
+            },
+            initialShowContentBlock: true 
         }
     },
     methods: {
@@ -129,8 +136,10 @@ export default {
                 }
             });
             //далее присваиваем значения этого объекта в переменную selectedShow, на основании которой отрисовываются элементы DOM
-           this.selectedShow = selectedShowObject[0]
-        }
+           this.selectedShow = selectedShowObject[0],
+           this.initialShowContentBlock = true
+        },
+        
         
     },
     created() {
@@ -143,3 +152,11 @@ export default {
     
 }
 </script>
+
+<style>
+    
+    @media (max-width: 767px) {
+        
+    }
+
+</style>
