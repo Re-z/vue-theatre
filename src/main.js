@@ -57,7 +57,7 @@ const router = new VueRouter({
 });
 
 router.afterEach((to,from) => {
-  console.log('After Route Change')
+  // console.log('After Route Change')
 })
 
 new Vue({
