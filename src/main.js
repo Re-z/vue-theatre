@@ -56,9 +56,13 @@ const router = new VueRouter({
   }
 });
 
-router.afterEach((to,from) => {
-  // console.log('After Route Change')
-})
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
+});
+
+
+
 
 new Vue({
   el:'#app',

@@ -12,12 +12,13 @@ export const routes =
             components: {
                 default: '',
                 home: HomePage,
-            }
+            },
+            meta: {title: 'Вояж-Престиж|Головна', description: 'Вистави для дiтей та дорослих, анiматори на будь яке свято'}
         },
-        {path: '/about', component: AboutPage},
-        {path: '/gallery', component: GalleryPage},
-        {path: '/repertory', component: RepertoryPage},
-        {path: '/services', component: ServicesPage},
-        {path: '/contacts', component: ContactsPage},
-        { path: '*',component: page404 }
+        {path: '/about', component: AboutPage, meta: {title: 'Вояж-Престиж|Про нас', description: 'Київський театр Вояж-Престиж. Професійні актори, оригінальні декорації, цікаві вистави.'}},
+        {path: '/gallery', component: GalleryPage, meta: {title: 'Вояж-Престиж|Галерея', description: 'Фото і відео вистав Київського театру Вояж-Престиж.'}},
+        {path: '/repertory', component: RepertoryPage, meta: {title: 'Вояж-Престиж|Репертуар', description: 'Репертуарний план театру Вояж-Престиж. Спектаклі та вистави з повчальною складовою для різних вікових груп'}},
+        {path: '/services', component: ServicesPage, meta: {title: 'Вояж-Престиж|Послуги', description: 'Київський театр Вояж-Престиж. Професійні актори, оригінальні декорації, цікаві вистави.'}},
+        {path: '/contacts', component: ContactsPage, meta: {title: 'Вояж-Престиж|Контакти', description: 'Театр Вояж-Престиж. Контакти.'}},
+        { path: '*',component: page404, meta: {title: 'Вояж-Престиж|404', description: 'oops'} }
     ]

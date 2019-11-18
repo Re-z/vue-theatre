@@ -2,9 +2,12 @@
     <header id="top" class="header">
         <div class="inner">
             <div class="nav">
-                <div class="header__burger" @click="showMobileMenu"><span></span><span></span><span></span></div>
+                <div class="header__burger" @click="toggleMobileMenu"><span></span><span></span><span></span></div>
                 <img src="../../assets/img/logo.png" alt="Театр 'Вояж-Престиж'">
-                <ul class="header__nav" v-if="menuIsOpen">
+                <ul 
+                    class="header__nav"
+                    :class="{'is-visible' : mobileMenuIsOpen}"
+                    >
                     <li><router-link exact to="/">Головна</router-link></li>
                     <li><router-link exact to="/about">Про нас</router-link></li>
                     <li><router-link exact to="/gallery">Галерея</router-link></li>
@@ -18,34 +21,29 @@
 </template>
 
 <script>
+
+
 export default {
     data() {
         return {
-            // при изначальной загрузке страницы делается проверка на разрешение экрана
-            // если больше 767 - записывается true. Потом идет привязка к v-if
-            // и меню в десктопе отображается (true), а в мобе нет (false). В мобе оно показывается
-            // только при клике на бургер
-            menuIsOpen: this.setInitialMenu()
+            //статус видимости мобильного меню
+            mobileMenuIsOpen: false
         } 
     },
     methods: {
-        // Проверка на разрешение экрана
-        showMobileMenu() {
-            let wWidth = window.innerWidth;
-            if(wWidth <= 767) {
-                this.menuIsOpen = !this.menuIsOpen
-            }
-        },
-        //устанавливаем изначальный показ меню
-        setInitialMenu() {
-            let wWidth = window.innerWidth;
-            if(wWidth <= 767) {
-                return false
-            } else {
-                return true
-            }
-        }   
+        //переключалка видимости мобильного меню
+        toggleMobileMenu() {
+           this.mobileMenuIsOpen = !this.mobileMenuIsOpen;
+        }
     },
+    watch: {
+        //таким образом можно отследить изменения урлы и отреагировать на это.
+        // в данном случае - когда урла меняется - мы скрываем мобильное меню
+        '$route'() {
+            this.mobileMenuIsOpen = false;
+        }
+    }
+    
     
 }
 
