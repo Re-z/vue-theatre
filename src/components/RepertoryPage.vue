@@ -20,8 +20,7 @@
                             
                                 <ul v-if="youngListIsShown">
                                     <li 
-                                        v-for="(item,index) in db" :key="index" 
-                                        v-if="item.forAge === 'young'"
+                                        v-for="(item,index) in forYoungShows" :key="index" 
                                         @click="selectActiveShow"
                                         :class="item.name === selectedShow.name ? 'is-active' : ''" 
                                     >
@@ -43,8 +42,7 @@
                                 
                                 <ul v-if="oldListIsShown">
                                     <li 
-                                        v-for="(item,index) in db" :key="index" 
-                                        v-if="item.forAge === 'old'"
+                                        v-for="(item,index) in forOldShows" :key="index" 
                                         @click="selectActiveShow"    
                                         :class="item.name === selectedShow.name ? 'is-active' : ''" 
 
@@ -61,8 +59,7 @@
                                 </h2>
                                 <ul class="" v-if="archiveListIsShown">
                                     <li 
-                                        v-for="(item,index) in db" :key="index" 
-                                        v-if="item.forAge === 'archive'"
+                                        v-for="(item,index) in archivedShows" :key="index" 
                                         @click="selectActiveShow"    
                                         :class="item.name === selectedShow.name ? 'is-active' : ''"     
                                     >
@@ -115,7 +112,7 @@ export default {
             youngListIsShown: true, //управляет статусом показа аккордеона с представлениями
             oldListIsShown: false, //управляет статусом показа аккордеона с представлениями
             archiveListIsShown: false, //управляет статусом показа аккордеона с представлениями
-            db: '', //сюда будет записан объект, который прийдет с firebase и на основании него будет отрисован список представлений в DOM
+            db: [], //сюда будет записан объект, который прийдет с firebase и на основании него будет отрисован список представлений в DOM
             selectedShow: { //здесь будет хранится объект активного выступления, которое в данный момент на экране
                 "name": "Навчання Коськи",
                 "img": "koska.jpg",
@@ -126,7 +123,6 @@ export default {
         }
     },
     methods: {
-        
         selectActiveShow(event) {
             //забираем текст с кликнувшего элемента. Фильтруем на его основе весь масив и получаем массив с одним, активным объектом (на который кликнули)
             let selectedName = event.target.textContent.trim();
@@ -142,10 +138,34 @@ export default {
         
         
     },
+    computed: {
+        //на основе полученных данных, создаем новые массивы для принта в DOM
+        forYoungShows(){
+            return this.db.filter(el => {
+                if(el.forAge === 'young') {
+                    return el
+                }
+            })
+        },
+        forOldShows(){
+            return this.db.filter(el => {
+                if(el.forAge === 'old') {
+                    return el
+                }
+            })
+        },
+        archivedShows(){
+            return this.db.filter(el => {
+                if(el.forAge === 'archive') {
+                    return el
+                }
+            })
+        }
+    },
     created() {
         
         // получаем промис
-        let data = getDataFromDB()
+        let data = getDataFromDB() //ф-я лежит в js/getData...
         // когда данные будут получены - они присвоятся переменной db в data и произойдет отрисовка списка
             .then(a => this.db = a);
     },
