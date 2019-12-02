@@ -1,4 +1,5 @@
 # vue-theatre
+# Demo: http://vp-teatr.kiev.ua/
 ### Фишки
 - SPA на Vue.js. Использует vue-router
 - Использует Firebase (базу данных), коннкетится к ней через fetch по адресу https://vp-teatr.firebaseio.com/repertory.json
