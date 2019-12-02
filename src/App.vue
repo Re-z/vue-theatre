@@ -1,28 +1,7 @@
 <template>
     <div class="main-wrap">
-        <!-- представление для главной страницы -->
-        <transition name="fade" mode="out-in">
-            <router-view name="home"></router-view>
-        </transition>
-        
-
-        <!-- если главная страница - показываем одно представление router-view name="home",
-        если же нет - показываем совсем другой блок с другим представленим, в котором не меняются
-        хедер и футер -->
-        <div v-if="currentRoute != '/'">
-            <app-header></app-header>
-
-            <transition name="fade" mode="out-in">
-                <router-view></router-view>
-            </transition>
-        
-            <app-footer></app-footer>
-        
-        </div>
-        
-        
-        
-        
+        <!-- set component dynamically depends on url -->
+        <component :is="setComponent"></component> 
     </div>
 </template>
 
@@ -30,22 +9,15 @@
 
 <script>
 export default {
-    data() {
-        return {
-            currentRoute: '/'
+    
+    computed: {
+        setComponent() {
+            if(this.$route.fullPath === '/') {
+                return 'app-homepage'
+            } 
+            return 'app-innerpage'
         }
     },
-    updated() {
-        //каждый раз, когда обновляется главный компонент
-        // - мы смотрим урлу и записываем ее в переменную
-        // потом, на основании значения мы показываем или не показываем
-        // другой слой представления router-view
-        this.currentRoute = this.$router.currentRoute.fullPath
-    },
-    created() {
-        //фолбек для отображения правильного router-view при изначальной загрузке страницы (если это не главная)
-        this.currentRoute = this.$router.currentRoute.fullPath
-    }
 }
 </script>
 

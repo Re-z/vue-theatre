@@ -6,7 +6,8 @@ Vue.use(VueRouter);
 import { routes } from './assets/js/routes.js'
 
 //components
-import HomePage from './components/HomePage.vue'
+import HomePage from './components/layouts/HomePage.vue'
+import InnerPage from './components/layouts/InnerPage.vue'
 import AboutPage from './components/AboutPage.vue'
 import GalleryPage from './components/GalleryPage.vue'
 import ServicesPage from './components/ServicesPage.vue'
@@ -25,6 +26,7 @@ Vue.component('LightBox', LightBox);
 
 
 Vue.component('app-homepage', HomePage);
+Vue.component('app-innerpage', InnerPage);
 Vue.component('app-aboutpage', AboutPage);
 Vue.component('app-gallery', GalleryPage);
 Vue.component('app-services', ServicesPage);

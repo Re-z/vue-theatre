@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="appear-in">
         <header id="top" class="header header_mainpage">
             <div class="inner">
-                <div class="header__logo"><img src="../assets/img/logo.png" alt="Театр 'Вояж-Престиж'">
+                <div class="header__logo"><img src="@/assets/img/logo.png" alt="Театр 'Вояж-Престиж'">
                     <h1>Театр "Вояж-Престиж"</h1>
                 </div>
                 <div class="header__box">
@@ -32,7 +32,6 @@
                             <div class="links__masc"></div><strong>Послуги</strong>
                             <p>Перелік послуг, які пропонує наш театр.</p>
                             <router-link exact to="/services" class="btn">Детальніше</router-link>
-
                         </div>
                         <div class="links__item">
                             <div class="links__paper"></div><strong>Контакти</strong>
@@ -58,3 +57,15 @@
 
     </div>
 </template>
+<style>
+@keyframes appear {
+    from {
+        opacity: 0
+    } to {
+        opacity: 1;
+    }
+}
+.appear-in {
+  animation: appear .5s  
+}
+</style>
